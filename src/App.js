@@ -1,9 +1,8 @@
-import {AppBar, Button, Typography, createTheme, Box, IconButton, Menu, MenuItem, Tooltip, Avatar, Toolbar} from '@mui/material';
+import {AppBar, Typography, createTheme, Box, IconButton, Menu, MenuItem, Tooltip, Avatar, Toolbar} from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import Logo from './assets/funlearn.png'
 import { ThemeProvider } from '@emotion/react';
 import React from 'react';
-import Quiz from './container/Quiz';
 import {Link} from 'react-router-dom';
 
 const custTheme = createTheme({
