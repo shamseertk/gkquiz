@@ -1,0 +1,51 @@
+body {
+  font-family:Arial, Helvetica, sans-serif;
+  margin: 0px;
+}
+
+.question {
+  font-size: 1.5em;
+  background-color: #efc
+}
+
+.answer {
+  border: 1px solid gray;
+}
+
+.answer-options {
+  display:flex;
+}
+
+.answer-option {
+  float: left;
+  width: 50%;
+  border: 1px solid gray
+}
+
+.success {
+  background-color: green;
+}
+
+.error {
+  background-color: red;
+}
+
+.app-bar {
+  padding: 10px 5px;
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(197,232,183,1) 48%);
+}
+
+.menu {
+  margin-right: 10px;
+  background-color: rgba(0, 0, 255, 0.043);
+}
+
+.list-item {
+  background-color: #ddd8d8;
+  border: 1px solid gray;
+}
+
+.list-item-selected {
+  background-color: #8b2525;
+  color: white;
+}
