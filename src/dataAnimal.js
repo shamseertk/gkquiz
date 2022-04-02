@@ -419,13 +419,13 @@ export const dcData = [{
   name: ""
 }, {
   id: "135",
-  name: ""
+  name: "Squirrel"
 }, {
   id: "136",
   name: ""
 }, {
   id: "137",
-  name: ""
+  name: "Komodo Dragon"
 }, {
   id: "",
   name: ""

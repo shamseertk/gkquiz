@@ -5,7 +5,8 @@ export const category = {
   BOTONY: 'Botony',
   PHYSICS: 'Physics',
   SOCIALSCIENCE: 'Social',
-  RELIGIONAL: 'Religion'
+  RELIGIONAL: 'Religion',
+  COMPUTER: 'Computer',
 }
 export const quiz = [{
   id: 1,
@@ -527,10 +528,10 @@ export const quiz = [{
   category: [category.ART]
 }, {
   id: "",
-  question: '?',
-  answer: '',
-  options: ['', '', '', ''],
-  category: [category.ART]
+  question: 'What do we call the Angels who write down what we do?',
+  answer: 'Kiramen Katibeen',
+  options: ['Israeel', 'Jibreel', 'Kiramen Katibeen', 'Israfeel'],
+  category: [category.RELIOGION]
 }, {
   id: "",
   question: '?',
@@ -569,9 +570,9 @@ export const quiz = [{
   category: [category.ART]
 }, {
   id: "",
-  question: '?',
-  answer: '',
-  options: ['', '', '', ''],
+  question: 'Who was known as Khalilullah?',
+  answer: 'Ibrahim-A',
+  options: ['Ibrahim-A', 'Muhammad-S', 'Ismael-A', 'Adam-A'],
   category: [category.ART]
 }, {
   id: "",
@@ -677,10 +678,10 @@ export const quiz = [{
   category: [category.ART]
 }, {
   id: "",
-  question: '?',
-  answer: '',
-  options: ['', '', '', ''],
-  category: [category.ART]
+  question: 'The computer that serves up information to other computers on a network?',
+  answer: 'Server',
+  options: ['Client', 'Server', 'Master', 'Super'],
+  category: [category.COMPUTER]
 }, {
   id: "",
   question: '?',
@@ -761,10 +762,10 @@ export const quiz = [{
   category: [category.ART]
 }, {
   id: "",
-  question: '?',
-  answer: '',
-  options: ['', '', '', ''],
-  category: [category.ART]
+  question: 'The computer’s main circuit board is called a ________.?',
+  answer: 'Motherboard',
+  options: ['Keyboard', 'Monitor', 'Harddisk', 'Motherboard'],
+  category: [category.COMPUTER]
 }, {
   id: "",
   question: '?',
@@ -809,10 +810,10 @@ export const quiz = [{
   category: [category.ART]
 }, {
   id: "",
-  question: '?',
-  answer: '',
-  options: ['', '', '', ''],
-  category: [category.ART]
+  question: 'Ther short term and long term memory of the computer is called?',
+  answer: 'RAM/Harddisk',
+  options: ['RAM/Harddisk', 'Cache/Storage', 'RAM/Storage', 'Storage/Harddisk'],
+  category: [category.COMPUTER]
 }, {
   id: "",
   question: '?',
@@ -947,10 +948,10 @@ export const quiz = [{
   category: [category.ART]
 }, {
   id: "",
-  question: '?',
-  answer: '',
-  options: ['', '', '', ''],
-  category: [category.ART]
+  question: 'Who is the father of Computer?',
+  answer: 'Charles Babbage',
+  options: ['Tom Charles', 'Alva Edison', 'Charles Babbage', 'Brad Froger'],
+  category: [category.COMPUTER]
 }, {
   id: "",
   question: '?',
