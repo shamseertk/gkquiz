@@ -23,7 +23,14 @@ const pages = [{
   label: 'DUMB CHARADE',
   link: '/dumb-charade'
 }];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const settings = [{
+  label: 'Login',
+  link: 'login'
+}, {
+  label: 'Register',
+  link: 'register'
+}];
 
 function App() {
 
@@ -134,8 +141,10 @@ function App() {
           onClose={handleCloseUserMenu}
         >
           {settings.map((setting) => (
-            <MenuItem key={setting} onClick={handleCloseUserMenu}>
-              <Typography textAlign="center">{setting}</Typography>
+            <MenuItem key={setting.link} onClick={handleCloseUserMenu}>
+              <Typography textAlign="center">
+                <Link key={setting.label} className="menu" onClick={() => handleCloseUserMenu()} to={setting.link}>{setting.label}</Link>
+              </Typography>
             </MenuItem>
           ))}
         </Menu>
