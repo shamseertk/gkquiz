@@ -16,7 +16,7 @@ function AnswerOptions(props) {
       <RadioGroup
         onChange={props.handleAnswerChange}
         >
-        {props.currentQuiz.options.map(opt => <FormControlLabel key={opt} value={opt} control={<Radio />} label={opt}
+        {props.currentQuiz && props.currentQuiz.options.map(opt => <FormControlLabel key={opt} value={opt} control={<Radio />} label={opt}
           className={opt === props.selectedAnswer ? statusClassName : (props.selectedAnswer !== undefined && opt === props.currentQuiz.answer) ? 'success' : ''} />)}
       </RadioGroup>
     </FormControl>

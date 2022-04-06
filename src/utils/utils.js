@@ -1,3 +1,4 @@
 export const generateRandomNumber = (max) => {
-  return Math.floor(Math.random() * Math.floor(max));
+  const randNum = Math.floor(Math.random() * Math.floor(max));
+  return randNum;
 }
