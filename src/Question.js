@@ -3,7 +3,7 @@ import React from 'react';
 function Question(props) {
   return (
     <div>
-      {props.currentQuiz.question}
+      {props.currentQuiz && props.currentQuiz.question}
     </div>
   )
 }
