@@ -1,4 +1,4 @@
-import { Button, FormControl, FormLabel, Grid, List, ListItem, ListItemText, TextField } from '@mui/material';
+import { Button, FormLabel, Grid, List, ListItem, ListItemText, TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react'
 import { generateRandomNumber } from '../utils/utils';
 import { collection, getDocs } from "firebase/firestore/lite";
@@ -144,36 +144,6 @@ function DumbCharade() {
       {currentDCData.name}
     </Grid>
   </Grid>
- {/*  <Grid container>
-    <Grid item md={12}>
-        <FormLabel>How many Players? 
-          <TextField type="number" value={numPlayers} onChange={(event) => setNumPlayers(event.target.value)} />
-        </FormLabel>
-    </Grid>
-          {players && players.map((pl, ind) => <Grid item md={4}>
-          <FormLabel key={`${ind}-Playername`}>{ind + 1}. Name: <TextField
-            value={pl.value}
-            onChange={(event) => handlePlayerName(event, ind)} /></FormLabel>
-            </Grid>)}
-            {parseInt(numPlayers) === 3 && <Button onClick={handleGenerateTeam}>Generate The Team</Button>}
-            {parseInt(numPlayers) > 3 && <Button onClick={handleGetRandomAnimal}>Start</Button>}
-    <Grid item md={6}>
-      {players.splice(0, Math.floor(players.length/2)).map((pl ,i) => <div>{i}. Test</div>)}
-    </Grid>
-    <Grid item md={6}>
-      testing
-    </Grid>
-    <Grid item md={4}>
-      <List component="nav">
-        {team.map(tm => <ListItem disabled={dcLocalData.length < 1} key={`${tm.from}${tm.to}`} button className="list-item" onClick={() => handleGetRandomAnimal(tm.from, tm.to)}>
-          <ListItemText className={`${tm.from}${tm.to}` === currPlayer ? `list-item-selected` : `list-item`} primary={`${tm.from}  ---> ${tm.to}`} />
-        </ListItem>)}
-      </List>
-    </Grid>
-    <Grid item md={8}>
-      {currentDCData.name}
-    </Grid>
-  </Grid> */}
   </>
 }
 
