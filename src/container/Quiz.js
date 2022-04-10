@@ -6,6 +6,8 @@ import Options from '../AnswerOptions'
 import { Button } from '@mui/material';
 import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from '../services/fb';
+import _ from 'lodash';
+import Players from '../components/Players';
 
 function handleAnswerChange(event, qzIndx, currentQuiz, setQzIndx, setStatus, setSelectedAnswer, setSelectedIndex){
   setSelectedAnswer(event.target.value);
@@ -24,7 +26,7 @@ function Quiz() {
     querySnapshot.forEach((doc) => {
       locQuizzes.push({ id: doc.id, ...doc.data() });
     });
-    setQuizzes(locQuizzes);
+    setQuizzes(_.shuffle(locQuizzes));
   }
   useEffect(() => {
     if (quizzes.length < 1) {
@@ -41,18 +43,19 @@ function Quiz() {
     quizzes.splice(qzIndx, 1);
   }, [qzIndx, quizzes]);
   return <div>
-      <div className="question">
-        {<Question currentQuiz={currentQuiz} /> }
-      </div>
-      { <div className="answer">
-        <Options
-          currentQuiz={currentQuiz}
-          status={status}
-          selectedAnswer={selectedAnswer}
-          handleAnswerChange={(event) => handleAnswerChange(event, qzIndx, currentQuiz, setQzIndx, setStatus, setSelectedAnswer)} />
-      </div> }
-      <Button disabled={quizzes.length === 1} onClick={() => setQzIndx(generateRandomNumber(quizzes.length - 1))}>Next Question</Button>
+    <Players />
+    <div className="question">
+      {<Question currentQuiz={currentQuiz} /> }
     </div>
+    {<div className="answer">
+      <Options
+        currentQuiz={currentQuiz}
+        status={status}
+        selectedAnswer={selectedAnswer}
+        handleAnswerChange={(event) => handleAnswerChange(event, qzIndx, currentQuiz, setQzIndx, setStatus, setSelectedAnswer)} />
+    </div>}
+    <Button disabled={quizzes.length === 1} onClick={() => setQzIndx(generateRandomNumber(quizzes.length - 1))}>Next Question</Button>
+  </div>
 }
 
-export default Quiz
+export default Quiz;

@@ -1,9 +1,10 @@
 import { Button, FormLabel, Grid, List, ListItem, ListItemText, TextField } from '@mui/material';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { generateRandomNumber } from '../utils/utils';
 import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from '../services/fb';
 import _ from 'lodash';
+import Countdown from 'react-countdown';
 
 function DumbCharade() {
   const [dcLocalData, setDCLocalData] = useState([]);
@@ -26,6 +27,8 @@ function DumbCharade() {
   const [team, setTeam] = useState([]);
   const [currentDCData, setCurrentDCData] = useState({});
   const [currPlayer, setCurrPlayer] = useState('');
+  const [timer, setTimer] = useState(30);
+  const [runTimer, setRunTimer] = useState(false);
 
   useEffect(() => {
     if(parseInt(numPlayers) >= 3) {
@@ -55,6 +58,7 @@ function DumbCharade() {
   }
 
   const handleGenerateTeam = () => {
+    setTeam([]);
     if(players.length === 3) {
       setTeam([{
         from: players[0].value,
@@ -114,6 +118,10 @@ function DumbCharade() {
     };
   }
 
+  const startTimer = () => {
+    setRunTimer(true);
+  }
+
   return <>
     <Grid container>
       <Grid item md={12}>
@@ -129,19 +137,22 @@ function DumbCharade() {
   <Grid container>
     <Grid item md={4}>
       <List component="nav">
-        {parseInt(numPlayers) === 3 ? team.map(tm => <> <ListItem disabled={dcLocalData.length < 1} key={`${tm.from}${tm.to}`} button className="list-item" onClick={() => handleGetRandomAnimal(tm.from, tm.to)}>
+        {parseInt(numPlayers) === 3 ? team.map(tm => <ListItem disabled={dcLocalData.length < 1} key={`${tm.from}${tm.to}`} button className="list-item" onClick={() => handleGetRandomAnimal(tm.from, tm.to)}>
           <ListItemText className={`${tm.from}${tm.to}` === currPlayer ? `list-item-selected` : `list-item`} primary={`${tm.from}  ---> ${tm.to}`} />
-        </ListItem>
-        <ListItem disabled={dcLocalData.length < 1} key={`${tm.to}${tm.from}`} button className="list-item" onClick={() => handleGetRandomAnimal(tm.to, tm.from)}>
-          <ListItemText className={`${tm.to}${tm.from}` === currPlayer ? `list-item-selected` : `list-item`} primary={`${tm.to}  ---> ${tm.from}`} />
-        </ListItem></>)
-        : getTheTeams().wholeTeam.map(pl =><ListItem disabled={dcLocalData.length < 1} key={`${pl}`} button className="list-item" onClick={() => handleGetRandomAnimal(pl)}>
-        <ListItemText className={`${pl}` === currPlayer ? `list-item-selected` : `list-item`} primary={`${pl}${getTheTeams().teamA.indexOf(pl) > -1 ? '(TeamA)' : '(TeamB)'}`} />
+        </ListItem>)
+        : getTheTeams().wholeTeam.map(pl =><ListItem disabled={dcLocalData.length < 1} key={`${pl}`}
+          button className="list-item" onClick={() => handleGetRandomAnimal(pl)}>
+        <ListItemText
+          className={`${pl}` === currPlayer ? `list-item-selected` : `list-item`}
+          primary={`${pl}${getTheTeams().teamA.indexOf(pl) > -1 ? '(TeamA)' : '(TeamB)'}`} />
       </ListItem>)}
       </List>
     </Grid>
     <Grid item md={8}>
       {currentDCData.name}
+      <TextField value={timer} onChange={(ev) => setTimer(ev.target.value)} />
+      {runTimer && <Countdown onComplete={() => {setRunTimer(false)}}date={Date.now() + (parseInt(timer) * 1000)} autoStart={runTimer} />}
+      <Button onClick={startTimer}>Start Game</Button>
     </Grid>
   </Grid>
   </>
