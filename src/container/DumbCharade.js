@@ -151,7 +151,11 @@ function DumbCharade() {
     <Grid item md={8}>
       {currentDCData.name}
       <TextField value={timer} onChange={(ev) => setTimer(ev.target.value)} />
-      {runTimer && <Countdown onComplete={() => {setRunTimer(false)}}date={Date.now() + (parseInt(timer) * 1000)} autoStart={runTimer} />}
+      {runTimer && <Countdown onComplete={() => {
+        setRunTimer(false);
+        const stop = new Audio(require('../assets/audio/stop.m4a'));
+        stop.play();
+      }}date={Date.now() + (parseInt(timer) * 1000)} autoStart={runTimer} />}
       <Button onClick={startTimer}>Start Game</Button>
     </Grid>
   </Grid>
