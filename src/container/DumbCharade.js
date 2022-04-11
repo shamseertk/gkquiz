@@ -156,7 +156,8 @@ function DumbCharade() {
         const stop = new Audio(require('../assets/audio/stop.m4a'));
         stop.play();
       }}date={Date.now() + (parseInt(timer) * 1000)} autoStart={runTimer} />}
-      <Button onClick={startTimer}>Start Game</Button>
+      <Button color="primary" onClick={startTimer}>Start Game</Button>
+      {runTimer && <Button color="secondary" onClick={() => setRunTimer(false)}>Stop Timer</Button>}
     </Grid>
   </Grid>
   </>
