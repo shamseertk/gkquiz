@@ -37,7 +37,28 @@ body {
 
 .menu {
   margin-right: 10px;
+  background-color: rgba(0, 0, 255, 0.143);
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 255, 0.143);
+  border-radius: 10px;
+  padding: 15px 7px;
+}
+
+.menu:hover {
+  border: 1px solid gray;
+}
+
+.menu-responsive {
   background-color: rgba(0, 0, 255, 0.043);
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 255, 0.043);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.page-title {
+  padding: 5px 0px;
+  border-bottom: 2px solid rgb(68, 37, 37);
 }
 
 .list-item {
@@ -48,4 +69,22 @@ body {
 .list-item-selected {
   background-color: #8b2525;
   color: white;
+}
+
+.container {
+  margin: 0px 10px;
+  padding: 0px 10px 10px 10px;
+  background: linear-gradient(0deg, rgb(228, 238, 238) 0%, rgb(152, 230, 231) 88%);
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid gray;
+  background-color: #333333f2;
+  color: white;
+}
+
+.main-container {
+  padding: 20px;
 }

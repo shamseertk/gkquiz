@@ -1,4 +1,4 @@
-import { FormLabel, Grid, TextField } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 
 function Players() {
@@ -6,9 +6,12 @@ function Players() {
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
-    if(parseInt(numPlayers) >= 3) {
-      const nPL = Array.from({length: numPlayers}).map((_, pl) => ({
+    if(parseInt(numPlayers) >= 2) {
+      const nPL = Array.from({length: numPlayers}).map((_, plIndx) => ({
           value: '',
+          label: `Player-${plIndx + 1} Name`,
+          placeholder: `Player-${plIndx + 1}`,
+          score: 0,
       }));
       setPlayers(nPL);
     } else {
@@ -23,15 +26,22 @@ function Players() {
     setPlayers(playerUpd);
   };
 
-  return <Grid container>
+  return <Grid spacing={3} container className="main-container">
       <Grid item md={12}>
-        <FormLabel>How many Players? 
-          <TextField type="number" value={numPlayers} onChange={(event) => setNumPlayers(event.target.value)} />
-        </FormLabel>
+        <TextField
+          label="How many Players" type="number" value={numPlayers}
+          onChange={(event) => setNumPlayers(event.target.value)}
+          error={players.length < 2}
+          helperText={players.length < 2 && "Minimum three players required."}
+          />
       </Grid>
-      {players && players.length >= 3 && players.map((pl, ind) => <Grid item md={4}>{ind + 1}. Name: <TextField
+      {players && players.length >= 2 && players.map((pl, ind) => <Grid item md={4}><TextField
             value={pl.value}
-            onChange={(event) => handlePlayerName(event, ind)} /></Grid>)}
+            label={pl.label}
+            placeholder={pl.placeholder}
+            onChange={(event) => handlePlayerName(event, ind)} />
+            Score: {pl.score ? 0 : pl.score}
+          </Grid>)}
     </Grid>
 }
 

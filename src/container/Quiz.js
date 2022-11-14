@@ -8,6 +8,7 @@ import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from '../services/fb';
 import _ from 'lodash';
 import Players from '../components/Players';
+import PageTitle from '../components/common/PageTitle';
 
 function handleAnswerChange(event, qzIndx, currentQuiz, setQzIndx, setStatus, setSelectedAnswer, setSelectedIndex){
   setSelectedAnswer(event.target.value);
@@ -33,7 +34,7 @@ function Quiz() {
       getQuizDocs();
     }
   }, []);// eslint-disable-line react-hooks/exhaustive-deps
-  const [qzIndx, setQzIndx] = useState(0);
+  const [qzIndx, setQzIndx] = useState(-1);
   const [currentQuiz, setCurrentQuiz] = useState(quizzes[qzIndx]);
   const [status, setStatus] = useState();
   const [selectedAnswer, setSelectedAnswer] = useState();
@@ -43,7 +44,9 @@ function Quiz() {
     quizzes.splice(qzIndx, 1);
   }, [qzIndx, quizzes]);
   return <div>
+    <PageTitle title="Quiz" />
     <Players />
+    <Button onClick={() => setQzIndx(0)}>Start the Quiz</Button>
     <div className="question">
       {<Question currentQuiz={currentQuiz} /> }
     </div>

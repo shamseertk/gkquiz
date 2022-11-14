@@ -1,4 +1,4 @@
-import {AppBar, Typography, createTheme, Box, IconButton, Menu, MenuItem, Tooltip, Avatar, Toolbar} from '@mui/material';
+import {AppBar, Typography, createTheme, Box, IconButton, Menu, Toolbar} from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import Logo from './assets/funlearn.png'
 import { ThemeProvider } from '@emotion/react';
@@ -17,40 +17,43 @@ const custTheme = createTheme({
 })
 
 const pages = [{
-  label: 'Home',
+  label: 'Spelling Game',
   link: '/'
 },{
-  label: 'DUMB CHARADE',
+  label: 'Quiz',
+  link: '/quiz'
+},{
+  label: 'Dumb Charade',
   link: '/dumb-charade'
 }];
 
-const settings = [{
+/* const settings = [{
   label: 'Login',
   link: 'login'
 }, {
   label: 'Register',
   link: 'register'
-}];
+}]; */
 
 function App() {
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+ // const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  /* const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
+  }; */
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  /* const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
+  }; */
 
   return <ThemeProvider theme={custTheme}> 
   <AppBar position="static" className="app-bar">
@@ -92,13 +95,10 @@ function App() {
           }}
         >
           {pages.map((page) => (
-            <div key={page.label}><Link className="menu" to={page.link} onClick={handleCloseNavMenu}>{page.label}</Link></div>
+            <div key={page.label}><Link className="menu-responsive" to={page.link} onClick={handleCloseNavMenu}>{page.label}</Link></div>
           ))}
         </Menu>
       </Box>
-            {/* <MenuItem key={page} onClick={handleCloseNavMenu}>
-              <Typography textAlign="center">{page.label}</Typography>
-            </MenuItem> */}
       <Typography
         component="div"
         sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
@@ -109,19 +109,11 @@ function App() {
         {pages.map((page) => (
           <Link key={page.label} className="menu" onClick={() => handleCloseNavMenu()} to={page.link}>{page.label}</Link>
         ))}
-      </Box>{/* 
-          <Button
-            key={page.label}
-            onClick={() => handleCloseNavMenu()}
-            sx={{ my: 2, color: 'white', display: 'block' }}
-          >
-            {page.label}
-          </Button> */}
-
-      <Box sx={{ flexGrow: 0 }}>
+      </Box>
+      {/* <Box sx={{ flexGrow: 0 }}>
         <Tooltip title="Open settings">
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <AccountCircleSharp />
           </IconButton>
         </Tooltip>
         <Menu
@@ -142,13 +134,11 @@ function App() {
         >
           {settings.map((setting) => (
             <MenuItem key={setting.link} onClick={handleCloseUserMenu}>
-              <Typography textAlign="center">
-                <Link key={setting.label} className="menu" onClick={() => handleCloseUserMenu()} to={setting.link}>{setting.label}</Link>
-              </Typography>
+                <Link className="menu-responsive" key={setting.label} onClick={() => handleCloseUserMenu()} to={setting.link}>{setting.label}</Link>
             </MenuItem>
           ))}
         </Menu>
-      </Box>
+      </Box> */}
     </Toolbar>
 </AppBar>
 </ThemeProvider>

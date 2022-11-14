@@ -9,6 +9,15 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
+  apiKey: "AIzaSyDPrLFCk7Om2TCr6BcgyXrFkYefxgOyFZ8",
+  authDomain: "funandlearn-dev.firebaseapp.com",
+  projectId: "funandlearn-dev",
+  storageBucket: "funandlearn-dev.appspot.com",
+  messagingSenderId: "406528670826",
+  appId: "1:406528670826:web:1e04a1420ccaa3e28fde13"
+};
+
+/* const firebaseConfig = {
   apiKey: "AIzaSyDHmPUr-QAhbqwryrs9MctyC6oRPi_KyfU",
   authDomain: "funandlearn-77a98.firebaseapp.com",
   databaseURL: "https://funandlearn-77a98.firebaseio.com",
@@ -17,7 +26,7 @@ const firebaseConfig = {
   messagingSenderId: "440943295997",
   appId: "1:440943295997:web:947b54d66ff39a64bf6d94",
   measurementId: "G-X8WLZZ7D3B"
-};
+}; */
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

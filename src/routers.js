@@ -4,10 +4,12 @@ import DumbCharade from './container/DumbCharade'
 import Login from './container/Login'
 import Register from './container/Register'
 import Quiz from './container/Quiz'
+import SpellingGame from './container/SpellingGame'
 
 function Routers() {
   return <Routes>
-    <Route path="/" element={<Quiz />} />
+    <Route path="/" element={<SpellingGame />} />
+    <Route path="/quiz" element={<Quiz />} />
     <Route path="dumb-charade" element={<DumbCharade />} />
     <Route path="login" element={<Login />} />
     <Route path="register" element={<Register />} />

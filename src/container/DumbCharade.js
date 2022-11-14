@@ -5,6 +5,7 @@ import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from '../services/fb';
 import _ from 'lodash';
 import Countdown from 'react-countdown';
+import PageTitle from '../components/common/PageTitle';
 
 function DumbCharade() {
   const [dcLocalData, setDCLocalData] = useState([]);
@@ -123,6 +124,7 @@ function DumbCharade() {
   }
 
   return <>
+    <PageTitle title="Dumb Charade" />
     <Grid container>
       <Grid item md={12}>
         <FormLabel>How many Players? 
