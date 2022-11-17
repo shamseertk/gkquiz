@@ -5,6 +5,7 @@ import Login from './container/Login'
 import Register from './container/Register'
 import Quiz from './container/Quiz'
 import SpellingGame from './container/SpellingGame'
+import SpellingBee from './container/SpellingBee'
 
 function Routers() {
   return <Routes>
@@ -13,6 +14,7 @@ function Routers() {
     <Route path="dumb-charade" element={<DumbCharade />} />
     <Route path="login" element={<Login />} />
     <Route path="register" element={<Register />} />
+    <Route path="spelling-bee" element={<SpellingBee />} />
   </Routes>
 }
 

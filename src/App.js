@@ -25,6 +25,9 @@ const pages = [{
 },{
   label: 'Dumb Charade',
   link: '/dumb-charade'
+},{
+  label: 'Spelling Bee',
+  link: '/spelling-bee'
 }];
 
 /* const settings = [{
