@@ -1,10 +1,10 @@
-import { Box, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import { useState } from 'react'
 import PageTitle from "../components/common/PageTitle";
 
 const tryRequire = (path) => {
   try {
-   return <img src={require(`../assets/images/${path}.jpg`)} width="300" alt="Spelling" />;
+   return <img src={require(`../assets/images/${path.toLowerCase()}.jpg`)} width="300" alt="Spelling" />;
   } catch (err) {
    return false;
   }
@@ -22,7 +22,8 @@ function SpellingGame() {
               fontSize: "3rem",
               textTransform: "uppercase",
             },
-          }} label="Spelling" value={spelling} onChange={(evt) => setSpelling(evt.target.value)} />
+          }} label="Spelling" value={spelling.toUpperCase()} onChange={(evt) => setSpelling(evt.target.value)} />
+      <Button onClick={() => setSpelling('')}>Clear</Button>
     </Box>
     
     {tryRequire(spelling.toLowerCase())}
