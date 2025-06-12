@@ -88,3 +88,25 @@ body {
 .main-container {
   padding: 20px;
 }
+
+.keycontainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.keycontainer button{
+  padding: 10px;
+  background-color: #b1e8e9;
+  cursor: pointer;
+}
+
+.spacebar{
+  min-width: 200px
+} 
+
+.clear-text{
+  min-width: 50px;
+}
