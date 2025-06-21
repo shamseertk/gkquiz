@@ -1,6 +1,7 @@
-import { Box, Button, Popover, TextField, Typography } from "@mui/material";
+import { Box, Grid, Popover, TextField, Typography } from "@mui/material";
 import { useState } from 'react'
 import PageTitle from "../components/common/PageTitle";
+import Keyboard from "../components/Keyboard";
 
 const tryRequire = (path) => {
   try {
@@ -21,12 +22,23 @@ function SpellingGame() {
   const [anchorEIImgs, setAnchorElImgs] = useState(null);
   const reqCont = require.context('../assets/images/', false, /\.(jpg)$/ );
   const listImages = importAll(reqCont);
-  console.log(listImages);
-  console.log(Object.entries(listImages));
+  //console.log(listImages);
+  //console.log(Object.entries(listImages));
+  const insertLetter = (letter) => {
+    if(letter === 'BS') {
+      setSpelling(spelling.slice(0, -1))
+    } else if(letter === 'Clear') {
+      setSpelling("")
+    }else{
+      setSpelling(spelling.concat(letter));
+    }
+  }     
+    
   return <div>
     <PageTitle title="Spelling Game" />
     <Box>
-      <TextField
+      <Grid container>
+        <Grid md={7}><TextField
           InputProps={{
             style: { 
               color: "red",
@@ -34,9 +46,14 @@ function SpellingGame() {
               textTransform: "uppercase",
             },
           }} label="Spelling" value={spelling.toUpperCase()} onChange={(evt) => setSpelling(evt.target.value)} />
-      <Button onClick={() => setSpelling('')}>Clear</Button>
+        </Grid>
+        <Grid md={5}>
+           <Keyboard insertLetter={insertLetter} />
+        </Grid>
+      </Grid>
+      
       <Typography onMouseLeave={() => setAnchorElImgs(null)} onMouseEnter={(evt) => setAnchorElImgs(evt.currentTarget)} >
-        View All
+        Hints
       </Typography>
       <Popover
         open={Boolean(anchorEIImgs)}
