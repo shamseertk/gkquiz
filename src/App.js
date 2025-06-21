@@ -28,6 +28,9 @@ const pages = [{
 },{
   label: 'Spelling Bee',
   link: '/spelling-bee'
+},{
+  label: 'Tic-Tac-Toe',
+  link: '/tictactoe'
 }];
 
 /* const settings = [{
