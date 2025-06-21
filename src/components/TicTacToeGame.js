@@ -3,7 +3,7 @@ import Fab from '@mui/material/Fab';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
 const TicTacToeGame = (props) => {
-    const [boxValue, setBoxValue] = useState([
+    const [boxValue] = useState([
         ['','',''],
         ['','',''],
         ['','',''],
