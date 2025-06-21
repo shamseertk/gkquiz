@@ -6,6 +6,7 @@ import Register from './container/Register'
 import Quiz from './container/Quiz'
 import SpellingGame from './container/SpellingGame'
 import SpellingBee from './container/SpellingBee'
+import TicTacToe from './container/TicTacToe'
 
 function Routers() {
   return <Routes>
@@ -15,6 +16,7 @@ function Routers() {
     <Route path="login" element={<Login />} />
     <Route path="register" element={<Register />} />
     <Route path="spelling-bee" element={<SpellingBee />} />
+    <Route path="tictactoe" element={<TicTacToe />} />
   </Routes>
 }
 

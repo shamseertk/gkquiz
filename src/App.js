@@ -27,7 +27,10 @@ const pages = [{
   link: '/dumb-charade'
 },{
   label: 'Spelling Bee',
-  link: '/spelling-bee'  
+  link: '/spelling-bee'
+},{
+  label: 'Tic-Tac-Toe',
+  link: '/tictactoe'
 }];
 
 /* const settings = [{
